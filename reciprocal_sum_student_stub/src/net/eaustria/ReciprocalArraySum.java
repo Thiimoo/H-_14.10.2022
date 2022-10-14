@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package net.eaustria;
 
-/**
- *
- * @author bmayr
- */
+package net.eaustria;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,13 +23,6 @@ public final class ReciprocalArraySum {
         
         private static int SEQUENTIAL_THRESHOLD = 50000;
 
-        /**
-         * Constructor.
-         * @param setStartIndexInclusive Set the starting index to begin
-         *        parallel traversal at.
-         * @param setEndIndexExclusive Set ending index for parallel traversal.
-         * @param setInput Input values
-         */
         ReciprocalArraySumTask(final int setStartIndexInclusive,
                 final int setEndIndexExclusive, final double[] setInput) {
             this.startIndexInclusive = setStartIndexInclusive;
@@ -49,14 +33,17 @@ public final class ReciprocalArraySum {
             return value;
         }
 
+        public void setValue(double value) {
+            this.value = value;
+        }
+
         @Override
         protected void compute() {
-            // TODO: Implement Thread forking on Threshold value. (If size of
-            // array smaller than threshold: compute sequentially else, fork 
-            // 2 new threads
            if(input.length < value)
            {
-
+               double result = seqArraySum(input);
+               setValue(result);
+               System.out.println(result);
            }
            else {
                ReciprocalArraySumTask task1 = new ReciprocalArraySumTask(0, input.length/2,input);
@@ -76,11 +63,12 @@ public final class ReciprocalArraySum {
      * @param numTasks The number of tasks to create
      * @return The sum of the reciprocals of the array input
      */
-    protected static double parManyTaskArraySum(final double[] input,
-            final int numTasks) {
-        double sum = 0;
-       // ToDo: Start Calculation with help of ForkJoinPool
-       
+    protected static double parManyTaskArraySum(final double[] input, final int numTasks) {
+       double sum = 0;
+       ForkJoinPool fj = new ForkJoinPool(numTasks);
+       ReciprocalArraySumTask task =  new ReciprocalArraySumTask(0, input.length,input);
+       fj.invoke(task);
+       sum = task.getValue();
        return sum;
     }
 }
