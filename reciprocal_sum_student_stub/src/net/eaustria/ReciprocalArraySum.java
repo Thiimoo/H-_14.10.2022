@@ -6,12 +6,18 @@ import java.util.List;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 public final class ReciprocalArraySum {
+
+    public static void main(String[] args) {
+        double[] arr = {1.0 , 2.0 , 3.0 , 4.0};
+        ReciprocalArraySumTask rt = new ReciprocalArraySumTask(0,arr.length,arr);
+        rt.compute();
+    }
     private ReciprocalArraySum() {
     }
     protected static double seqArraySum(final double[] input) {
         double sum = 0;
         for (int i = 0; i < input.length; i++) {
-            sum += input[i];
+            sum += (1/input[i]);
         }
         return sum;
     }
@@ -39,16 +45,16 @@ public final class ReciprocalArraySum {
 
         @Override
         protected void compute() {
-           if(input.length < value)
+           if(input.length < SEQUENTIAL_THRESHOLD)
            {
                double result = seqArraySum(input);
-               setValue(result);
+               setValue(result+getValue());
                System.out.println(result);
            }
            else {
                ReciprocalArraySumTask task1 = new ReciprocalArraySumTask(0, input.length/2,input);
                ReciprocalArraySumTask task2 = new ReciprocalArraySumTask((input.length/2)+1, input.length,input);
-                invokeAll(task1,task2);
+               invokeAll(task1,task2);
            }
             
         }
