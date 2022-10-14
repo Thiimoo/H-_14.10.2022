@@ -2,6 +2,7 @@
 package net.eaustria;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
@@ -33,7 +34,7 @@ public final class ReciprocalArraySum {
                 final int setEndIndexExclusive, final double[] setInput) {
             this.startIndexInclusive = setStartIndexInclusive;
             this.endIndexExclusive = setEndIndexExclusive;
-            this.input = setInput;
+            this.input = shortenArray(setInput);
         }
         public double getValue() {
             return value;
@@ -41,6 +42,11 @@ public final class ReciprocalArraySum {
 
         public void setValue(double value) {
             this.value = value;
+        }
+
+        private double[] shortenArray(double[] input)
+        {
+            return Arrays.stream(input).boxed().toList().subList(startIndexInclusive, endIndexExclusive).stream().mapToDouble(n -> n).toArray();
         }
 
         @Override
@@ -54,6 +60,7 @@ public final class ReciprocalArraySum {
            else {
                ReciprocalArraySumTask task1 = new ReciprocalArraySumTask(0, input.length/2,input);
                ReciprocalArraySumTask task2 = new ReciprocalArraySumTask((input.length/2)+1, input.length,input);
+               System.out.println("new task");
                invokeAll(task1,task2);
            }
             
