@@ -66,16 +66,7 @@ public final class ReciprocalArraySum {
             
         }
     }
-  
 
-    /**
-     * TODO: Extend the work you did to implement parArraySum to use a set
-     * number of tasks to compute the reciprocal array sum. 
-     *
-     * @param input Input array
-     * @param numTasks The number of tasks to create
-     * @return The sum of the reciprocals of the array input
-     */
     protected static double parManyTaskArraySum(final double[] input, final int numTasks) {
        double sum = 0;
        ForkJoinPool fj = new ForkJoinPool(numTasks);
