@@ -30,18 +30,20 @@ public class LinkFinderAction extends RecursiveAction {
                 URL uriLink = new URL(url);
                 Parser parser = new Parser(uriLink.openConnection());
                 NodeList list = parser.extractAllNodesThatMatch(new NodeClassFilter(LinkTag.class));
-
+                System.out.println("size of NodesList: "+list.size());
+                //TODO: list befüllen weil des duats nu nd deswegn geht er nd ind fori eini
                 for (int i = 0; i < list.size(); i++) {
                     LinkTag extracted = (LinkTag) list.elementAt(i);
-
+                    System.out.println("extended link"+ extracted);
                     if (!extracted.extractLink().isEmpty()
                             && !cr.visited(extracted.extractLink())) {
 
                         actions.add(new LinkFinderAction(extracted.extractLink(), cr));
+                        System.out.println("added new action");
                     }
                 }
                 cr.addVisited(url);
-
+                System.out.println("visited: " + url);
                 if (cr.size() == 500) {
                     System.out.println("Gebrauchte zeit für 500 Links = " + (System.nanoTime() - t0));
                 }
