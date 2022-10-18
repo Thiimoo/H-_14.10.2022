@@ -24,6 +24,7 @@ public class LinkFinder implements Runnable {
     public LinkFinder(String url, ILinkHandler handler) {
         this.url = url;
         this.linkHandler = handler;
+        System.out.println("creating new linkfinder");
     }
 
     @Override
@@ -39,19 +40,20 @@ public class LinkFinder implements Runnable {
                 Parser parser = new Parser(uriLink.openConnection());
                 NodeList list = parser.extractAllNodesThatMatch(new NodeClassFilter(LinkTag.class));
                 List<String> urls = new ArrayList<String>();
-
+                System.out.println("size of list: "+list.size());
                 for (int i = 0; i < list.size(); i++) {
                     LinkTag extracted = (LinkTag) list.elementAt(i);
-
+                    System.out.println("new extracted link");
                     if (!extracted.getLink().isEmpty()
                             && !linkHandler.visited(extracted.getLink())) {
 
                         urls.add(extracted.getLink());
+                        System.out.println("added url: "+extracted.getLink());
                     }
 
                 }
                 linkHandler.addVisited(url);
-
+                System.out.println("added url to visited links");
                 if (linkHandler.size() == 500) {
                     System.out.println("Gebrauchte zeit für 500 Links = " + (System.nanoTime() - t0));
                 }
@@ -61,6 +63,7 @@ public class LinkFinder implements Runnable {
                 }
 
             } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
         }
     }

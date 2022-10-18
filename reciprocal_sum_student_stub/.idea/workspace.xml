@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="53273a71-922c-481e-99a3-db8da01cc59c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Hue.14.10.2022/010_web_crawler/src/net/eaustria/webcrawler/LinkFinderAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Hue.14.10.2022/010_web_crawler/src/net/eaustria/webcrawler/LinkFinderAction.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2G7YOvTpSeagMrwp7KLMonX4Rx1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Hue.14.10.2022/H-_14.10.2022/Hue.14.10.2022/010_web_crawler&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="ReciprocalArraySum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="net.eaustria.ReciprocalArraySum" />
+      <module name="reciprocal_sum_student_stub" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="net.eaustria.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ReciprocalArraySum" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="53273a71-922c-481e-99a3-db8da01cc59c" name="Changes" comment="" />
+      <created>1665741061609</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665741061609</updated>
+      <workItem from="1665741063274" duration="3217000" />
+      <workItem from="1665744575962" duration="1031000" />
+      <workItem from="1666094606094" duration="187000" />
+      <workItem from="1666095115447" duration="613000" />
+      <workItem from="1666102169279" duration="27000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

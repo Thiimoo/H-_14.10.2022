@@ -21,11 +21,13 @@ public class WebCrawler6 implements ILinkHandler {
     public WebCrawler6(String startingURL, int maxThreads) {
         this.url = startingURL;
         execService = Executors.newFixedThreadPool(maxThreads);
+        System.out.println("new webcrawler");
     }
 
     @Override
     public void queueLink(String link) throws Exception {
         startNewThread(link);
+        System.out.println("querelink");
     }
 
     @Override
@@ -44,7 +46,9 @@ public class WebCrawler6 implements ILinkHandler {
     }
 
     private void startNewThread(String link) throws Exception {
+        System.out.println("starting new thread");
         execService.execute(new LinkFinder(link, this));
+        System.out.println("thread executed");
     }
 
     private void startCrawling() throws Exception {
@@ -53,5 +57,6 @@ public class WebCrawler6 implements ILinkHandler {
 
     public static void main(String[] args) throws Exception {
         new WebCrawler6("http://www.javaworld.com", 64).startCrawling();
+        System.out.println("end of main");
     }
 }

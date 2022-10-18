@@ -4,7 +4,6 @@ import org.htmlparser.Parser;
 import org.htmlparser.filters.NodeClassFilter;
 import org.htmlparser.tags.LinkTag;
 import org.htmlparser.util.NodeList;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,12 +33,12 @@ public class LinkFinderAction extends RecursiveAction {
                 //TODO: list befüllen weil des duats nu nd deswegn geht er nd ind fori eini
                 for (int i = 0; i < list.size(); i++) {
                     LinkTag extracted = (LinkTag) list.elementAt(i);
-                    System.out.println("extended link"+ extracted);
+                    System.out.println("extrahierter link"+ extracted);
                     if (!extracted.extractLink().isEmpty()
                             && !cr.visited(extracted.extractLink())) {
 
                         actions.add(new LinkFinderAction(extracted.extractLink(), cr));
-                        System.out.println("added new action");
+                        System.out.println("neue aktion hinzugefügt");
                     }
                 }
                 cr.addVisited(url);
